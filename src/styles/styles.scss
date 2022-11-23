@@ -1,0 +1,37 @@
+@import 'main.scss';
+
+$mainColor: rgb(126, 126, 126);
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $mainColor;
+}
+
+.container {
+  max-width: 80%;
+  background-color: white;
+  color: black;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+  height: 100vh;
+  @media (max-width: 700px) {
+    max-width: 100%;
+  }
+}
+.img-wrapper {
+  width: 500px;
+  max-width: 90%;
+}
+.img {
+  border-radius: $borderRadius;
+  max-width: 100%;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.459), inset -1px -1px 3px rgba(0, 0, 0, 0.575);
+}
+.link {
+  text-decoration: none;
+  font-size: 1.5rem;
+}
