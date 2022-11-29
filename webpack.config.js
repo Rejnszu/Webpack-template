@@ -1,20 +1,19 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const BundleAnalyzerPlugin =
-  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 module.exports = {
-  mode: "development",
-  entry: { main: path.resolve(__dirname, "src/index.js") },
+  mode: 'production',
+  entry: { main: path.resolve(__dirname, 'src/index.js') },
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "[name].[contenthash].js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
     clean: true,
-    assetModuleFilename: "images/[name][ext]",
+    assetModuleFilename: 'images/[name][ext]',
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   devServer: {
     static: {
-      directory: path.resolve(__dirname, "dist"),
+      directory: path.resolve(__dirname, 'dist'),
     },
     port: 3000,
     open: true,
@@ -27,30 +26,30 @@ module.exports = {
     rules: [
       {
         test: /\.(sass|scss|css)$/,
-        use: ["style-loader", "css-loader", "sass-loader", "postcss-loader"],
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: { presets: ["@babel/preset-env"] },
+          loader: 'babel-loader',
+          options: { presets: ['@babel/preset-env'] },
         },
       },
-      { test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, type: "asset/resource" },
+      { test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, type: 'asset/resource' },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "Webpack template",
-      filename: "index.html",
-      template: "src/pages/index.html",
+      title: 'Webpack template',
+      filename: 'index.html',
+      template: 'src/pages/index.html',
     }),
 
     new HtmlWebpackPlugin({
-      title: "Webpack template contact",
-      filename: "sampleNextPage.html",
-      template: "src/pages/sampleNextPage.html",
+      title: 'Webpack template contact',
+      filename: 'sampleNextPage.html',
+      template: 'src/pages/sampleNextPage.html',
     }),
     new BundleAnalyzerPlugin(),
   ],
@@ -59,4 +58,4 @@ module.exports = {
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
   },
-};
+}
